@@ -21,12 +21,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+        Intent intent = new Intent(this, SampleService.class);
         switch (v.getId()) {
             case R.id.button_start:
-                startService(new Intent(this, SampleService.class));
+                startService(intent);
                 break;
             case R.id.button_stop:
-                stopService(new Intent(this, SampleService.class));
+                intent.setAction("stop");
+                stopService(intent);
                 break;
         }
     }

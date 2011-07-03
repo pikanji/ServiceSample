@@ -10,6 +10,11 @@ public class SampleService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Toast.makeText(this, "Service.onStartCommand invoked", Toast.LENGTH_SHORT).show();
+
+        if ("stop".equals(intent.getAction())) {
+            this.stopSelf(startId);
+        }
+
         return Service.START_STICKY_COMPATIBILITY;
     }
 
