@@ -9,9 +9,13 @@ import android.widget.Toast;
 public class SampleService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Toast.makeText(this, "Hello from Service!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Service.onStartCommand invoked", Toast.LENGTH_SHORT).show();
         return Service.START_STICKY_COMPATIBILITY;
-        // return super.onStartCommand(intent, flags, startId);
+    }
+
+    @Override
+    public void onDestroy() {
+        Toast.makeText(this, "Service.onDestroy invoked", Toast.LENGTH_SHORT).show();
     }
 
     @Override
